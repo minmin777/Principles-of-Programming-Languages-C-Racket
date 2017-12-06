@@ -1,0 +1,22 @@
+When i was first implementing my interpreter I was thinking of a list or hash that would allow me to append at the end however the HC list does not allow me to do that
+I then saw that vectors in C++ allow me to append at the end and so I made another map that would accept a string with the name of the function and then a vector of strings
+that has all the executions of the function.
+
+For the if/loop part of the interpreter I first thought of doing a parse tree as a TA showed me how to do this, however I was warry to do this as
+I wasn't confident on how to implement it in code. I then thought I could make two new vectors where one vector is for the if condition and the other
+is for the else condition. For a loop I implemented two new vectors as well so I can have one vector for the condition and the other for the execution.
+Then I thought after I have these vectors if any of the vectors have an if/else or begin/while I would recurse again and do the process again of making two new vectors
+and iterating through that vector. I saw that after the flag execution is done I needed to see what the flag is and then delete it. For this recursion
+I implemented an ifstatement function that would be for the if/else clauses but i realized that the code for the ifstatement is the same for the loop 
+execution function except for that the loop execution function has the while loop to execute the loop so that's why i used the ifstatement function in the loop execution.
+However in the begin/while execution I had to make two different cases as one case is for when there's another loop in either of the vectors or when either of the vectors are empty especially after the while.
+
+What my if implementation takes in - map with the pre-defined functions, map with user defined functions, vectors of strings that's
+either if the flag is true or false so ifvector or elsevector, Stack that should be changed
+
+what my loop implementation takes in - map with the pre-defined functions, map with user defined functions, vector of strings with inputs from before the while, vectors of strings with inputrs from before the repeat, Stack that is changed
+	it has two vectors because we need both to do the loop - one for flag checking and other to actually implement in the loop
+	
+Even though the if implementation and forthinter functions are the same I couldn't make them one because the forthinter takes in a string that's the token
+and the if implementation takes in a vector of strings that has all the inputs of either the if statement or else statement so I can iterate through the
+vectors in the if statement as in forthinter I go through the vector that's associated with the token and make two vectors one for true clause and other for false clause
